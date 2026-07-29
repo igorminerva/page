@@ -1,21 +1,26 @@
 import React from 'react'
+import GameMenu from './GameMenu/GameMenu'
 import HomeCard from './homeCard/HomeCard'
 import { Container, Row, Col } from 'react-bootstrap'
+import { useLocation } from 'react-router-dom'
 
 const HomePage = () => {
-    return (
-        <div>
-            <Container>
-                <Row className="my-4">
-                    <Col>
-                        <h1>Welcome to My Portfolio</h1>
-                    </Col>
-                </Row>
+    const location = useLocation()
+    const showMenu = location.pathname === '/'
 
-                <Row className="">
-                    <HomeCard />
-                </Row>
-            </Container>
+    return (
+        <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', padding: '20px' }}>
+                {showMenu ? (
+                    <>
+                        <p className="terminal-welcome" style={{ marginBottom: '24px' }}>&gt; MAIN MENU</p>
+                        <GameMenu />
+                    </>
+                ) : (
+                    <>
+                        <p className="terminal-welcome" style={{ marginBottom: '24px' }}>&gt; PROFILE</p>
+                        <HomeCard />
+                    </>
+                )}
         </div>
     )
 }

@@ -1,13 +1,29 @@
 import React from 'react'
-import { Card, Row } from 'react-bootstrap'
+import { Card } from 'react-bootstrap'
+import { useNavigate } from 'react-router-dom'
 
 const HomeCard = () => {
-    const sectionStyle = {
-        marginTop: '32px',
+    const navigate = useNavigate()
+
+    const headingStyle = {
+        fontFamily: 'var(--font-pixel)',
+        fontSize: '24px',
         marginBottom: '24px',
-        fontSize: '20px',
-        fontWeight: '600',
-        letterSpacing: '0.01em'
+        textShadow: '2px 2px 0 #333'
+    }
+
+    const subheadingStyle = {
+        fontFamily: 'var(--font-pixel)',
+        fontSize: '12px',
+        marginBottom: '32px',
+        lineHeight: '1.8'
+    }
+
+    const sectionStyle = {
+        fontFamily: 'var(--font-pixel)',
+        fontSize: '14px',
+        marginTop: '32px',
+        marginBottom: '24px'
     }
 
     const paragraphStyle = {
@@ -16,47 +32,78 @@ const HomeCard = () => {
         color: '#bbb'
     }
 
+    const backStyle = {
+        fontFamily: 'var(--font-pixel)',
+        fontSize: '12px',
+        marginTop: '32px',
+        cursor: 'pointer',
+        color: '#666'
+    }
+
+    const asciiArt = ` __     ______     ______     ______        __    __     __     __   __     ______     ______     __   __   ______   
+/\\ \\   /\\  ___\\   /\\  __ \\   /\\  == \\      /\\ "-./  \\   /\\ \\   /\\ "-.\\ \\   /\\  ___\\   /\\  == \\   /\\ \\ / /  /\\  __ \\  
+ \\ \\ \\  \\ \\ \\__ \\  \\ \\  /\\ \\  \\ \\  __<      \\ \\  -./\\ \\  \\ \\ \\  \\ \\ -.  \\  \\ \\  __\\   \\ \\  __<   \\ \\  \\'/   \\ \\  __ \\ 
+  \\ \\_\\  \\ \\_____\\  \\ \\_____\\  \\ \\_\\ \\_\\     \\ \\_\\ \\ \\_\\  \\ \\_\\  \\ _\\\\"\\_\\  \\ \\_____\\  \\ \\_\\ \\_\\  \\ \\__|    \\ \\_\\ \\_\\ 
+   \\/_/   \\/_____/   \\/_____/   \\/_/ /_/      \\/_/  \\/_/   \\/_/   \\/_/ \\/_/   \\/_____/   \\/_/ /_/   \\/_/      \\/_/\\/_/`
+
     return (
-        <Row className='justify-content-center'>
-            <Card className="card mb-3">
-                <Card.Body>
-                    <Card.Text>
-                        <h2 style={{ marginBottom: '24px', fontSize: '32px', fontWeight: '700' }}>
-                            Igor Minerva
-                        </h2>
-                        <p style={{ ...paragraphStyle, fontSize: '18px', fontWeight: '500', marginBottom: '32px' }}>
-                            Researcher | Problem Solver | Tech Enthusiast
-                        </p>
+        <Card className="card mb-3" style={{ maxWidth: '100%' }}>
+            <Card.Body>
+                <pre className="ascii-art">{asciiArt}</pre>
 
-                        <p style={paragraphStyle}>
-                            I'm a researcher. I tried my best to learn things by myself, and I have a strong passion for learning and problem-solving. I have a deep interest in technology and its potential to drive innovation and create impactful solutions. My journey has been fueled by curiosity, a desire to understand complex systems, and a commitment to continuous growth.
-                        </p>
+                <h2 style={headingStyle}>
+                    IGOR MINERVA<span className="cursor"></span>
+                </h2>
 
-                        <h3 style={sectionStyle}>
-                            Expertise & Approach
-                        </h3>
-                        <p style={paragraphStyle}>
-                            My expertise spans across various domains, including software development, data analysis, game design and development and machine learning. I thrive on tackling challenging problems and finding creative solutions. I believe in a collaborative approach to research and development, valuing diverse perspectives and fostering an environment of open communication.
-                        </p>
+                <p style={subheadingStyle}>
+                    GAME DESIGNER | GODOT DEV | CREATIVE PROBLEM SOLVER<br />
+                    <a href="https://iocandux.itch.io/" target="_blank" rel="noopener noreferrer">[ITCH.IO]</a>
+                </p>
 
-                        <h3 style={sectionStyle}>
-                            Experience
-                        </h3>
-                        <p style={paragraphStyle}>
-                            Throughout my career, I've contributed to a diverse range of projects—from personal applications. Each experience has reinforced my commitment to innovation and problem-solving. My complete technical background is available on the <strong>About</strong> page, and selected work can be found in the <strong>Projects</strong> section.
-                        </p>
+                <p style={paragraphStyle}>
+                    I'm a game designer and developer focused on creating immersive interactive experiences. 
+                    I specialize in <strong>Godot Engine</strong> and have a passion for game design that 
+                    pushes boundaries and creates memorable player experiences.
+                </p>
 
-                        <h3 style={sectionStyle}>
-                            Let's Connect
-                        </h3>
-                        <p style={paragraphStyle}>
-                            I'm interested in connecting with professionals, exploring new opportunities, and collaborating on meaningful projects. Feel free to reach out to discuss ideas, potential partnerships, or to learn more about my work.
-                        </p>
-                    
-                    </Card.Text>
+                <hr style={{ borderColor: '#333', margin: '32px 0' }} />
+
+                <h3 style={sectionStyle}>
+                    &gt; WHAT I DO
+                </h3>
+                <p style={paragraphStyle}>
+                    I design and develop games from concept to release, with expertise in gameplay mechanics, 
+                    level design, and narrative integration. Whether it's 2D pixel art adventures or 
+                    experimental gameplay systems, I love bringing creative visions to life.
+                </p>
+
+                <hr style={{ borderColor: '#333', margin: '32px 0' }} />
+
+                <h3 style={sectionStyle}>
+                    &gt; MY APPROACH
+                </h3>
+                <p style={paragraphStyle}>
+                    I believe great games come from understanding what makes interactions meaningful. 
+                    I combine technical skill in Godot with design thinking to create experiences 
+                    that resonate with players. My background in problem-solving helps me tackle 
+                    complex game mechanics and technical challenges.
+                </p>
+
+                <hr style={{ borderColor: '#333', margin: '32px 0' }} />
+
+                <h3 style={sectionStyle}>
+                    &gt; LET'S CONNECT
+                </h3>
+                <p style={paragraphStyle}>
+                    Check out my games on itch.io, or reach out to collaborate on game projects, 
+                    discuss game design, or explore new opportunities in game development.
+                </p>
+
+                <p style={backStyle} onClick={() => navigate('/')}>
+                    &lt; BACK TO MENU
+                </p>
             </Card.Body>
         </Card>
-        </Row >
     )
 }
 

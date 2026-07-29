@@ -10,7 +10,7 @@ import HobbyCard from './HobbyCard/HobbyCard';
 const AboutCards = () => {
     return (
         <Row>
-            <Col md={8}>
+            <Col xs={12}>
                 <PICard/>
                 <EducationCard/>
                 <ExperienceCard/>

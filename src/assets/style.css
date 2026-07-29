@@ -8,9 +8,12 @@
   --color-accent: #fff;
   --color-border: #333;
   --color-shadow: rgba(0,0,0,0.2);
-  --radius: 16px;
-  --font-main: 'Inter', 'Segoe UI', Arial, sans-serif;
+  --radius: 0px;
+  --font-main: 'VT323', 'Courier New', monospace;
+  --font-pixel: 'Press Start 2P', cursive;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
 
 body {
   background: var(--color-bg);
@@ -18,7 +21,6 @@ body {
   font-family: var(--font-main);
   margin: 0;
   min-height: 100vh;
-  letter-spacing: 0.01em;
 }
 
 header, nav, footer {
@@ -32,8 +34,7 @@ main {
   margin: 2rem auto;
   padding: 2rem;
   background: var(--color-bg-card);
-  border-radius: var(--radius);
-  box-shadow: 0 4px 24px var(--color-shadow);
+  box-shadow: 4px 4px 0 var(--color-border);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -43,40 +44,85 @@ h1, h2, h3, h4, h5, h6 {
 
 a {
   color: var(--color-accent);
-  text-decoration: underline;
+  text-decoration: none;
   transition: color 0.2s;
 }
 a:hover {
   color: var(--color-text-secondary);
+  text-decoration: underline;
+}
+
+.cursor {
+  display: inline-block;
+  width: 12px;
+  height: 1em;
+  background: var(--color-accent);
+  animation: blink 0.8s step-end infinite;
+  vertical-align: middle;
+  margin-left: 4px;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.ascii-art {
+  font-family: var(--font-main);
+  font-size: 11px;
+  line-height: 1.15;
+  color: #fff;
+  white-space: pre;
+  marginBottom: 24px;
+  text-align: center;
+  overflow-x: auto;
+}
+
+.terminal-welcome {
+  font-family: var(--font-pixel);
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 24px;
+  margin-top: 0;
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.card a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.card a:hover {
+  color: #fff;
+  text-shadow: 0 0 8px rgba(255,255,255,0.5);
 }
 
 .card {
   background: var(--color-bg-light);
-  border-radius: var(--radius);
-  box-shadow: 0 2px 8px var(--color-shadow);
+  box-shadow: 4px 4px 0 var(--color-border);
   padding: 1.5rem;
   margin-bottom: 1.5rem;
-  border: 1px solid var(--color-border);
-  transition: box-shadow 0.2s, border 0.2s;
+  border: 2px solid var(--color-border);
+  transition: box-shadow 0.2s, transform 0.2s;
 }
 .card:hover {
-  box-shadow: 0 6px 24px var(--color-shadow);
-  border: 1px solid var(--color-accent);
+  box-shadow: 6px 6px 0 var(--color-accent);
+  transform: translate(-2px, -2px);
+  border: 2px solid var(--color-accent);
 }
 
-.button, button {
+.card button {
   background: var(--color-accent);
   color: var(--color-bg);
+  font-family: var(--font-pixel);
   border: none;
-  border-radius: 8px;
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  margin: 0.5rem 0;
-  transition: background 0.2s, color 0.2s;
+  border-radius: 0;
 }
-.button:hover, button:hover {
+
+.button, button:hover {
   background: var(--color-text-secondary);
   color: var(--color-bg);
 }
@@ -101,6 +147,7 @@ a:hover {
 @media (max-width: 700px) {
   main {
     padding: 1rem;
+    box-shadow: 2px 2px 0 var(--color-border);
   }
   .flex {
     flex-direction: column;
@@ -119,20 +166,28 @@ a:hover {
 
 h1, h2, h3, h4, h5, h6 {
   color: #fff;
+  font-family: var(--font-main);
+  letter-spacing: 0;
 }
 
 .card {
   background-color: #222 !important;
-  border: 1px solid #333 !important;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  border: 2px solid #333 !important;
+  box-shadow: 4px 4px 0 #333;
+  border-radius: 0 !important;
 }
 
 .card:hover {
-  box-shadow: 0 6px 24px rgba(0,0,0,0.4);
-  border: 1px solid #555 !important;
+  box-shadow: 6px 6px 0 #fff;
+  transform: translate(-2px, -2px);
+  border: 2px solid #fff !important;
 }
 
-.card-title {
+main {
+  border: 2px solid #333;
+}
+
+.card-title, .card h2, .card h3 {
   color: #fff !important;
 }
 
@@ -141,8 +196,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar {
-  background-color: #1a1a1a;
-  border-bottom: 1px solid #333;
+  background-color: #1a1a1a !important;
+  border-bottom: 4px solid #333;
+  box-shadow: 0 4px 0 #222;
 }
 
 .nav-link {

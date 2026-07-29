@@ -74,12 +74,12 @@ const ProjectCard = () => {
   return (
     <Row>
       {projects.map((project) => (
-        <Col key={project.id} sm={12} md={6} lg={6} className="mb-3">
-          <Card style={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'column' }}>
+        <Col key={project.id} xs={12} className="mb-4">
+          <Card style={{ width: '100%', display: 'flex', flexDirection: 'row', flexWrap: 'wrap', border: '2px solid #333', borderRadius: 0 }}>
             <Card.Img 
               variant="top" 
               src={`https://opengraph.githubassets.com/1/${project.full_name}`}
-              style={{height:'16rem', objectFit:'cover', backgroundColor: '#222'}}
+              style={{width:'350px', height:'100%', minHeight: '220px', objectFit:'cover', backgroundColor: '#222'}}
               onError={(e) => {
                 e.target.style.backgroundColor = '#e9ecef';
               }}
